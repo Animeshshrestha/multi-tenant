@@ -3,6 +3,10 @@ from tenant_schemas.models import TenantMixin
 
 
 class Tenant(TenantMixin):
+    """
+    Tenant Model
+    """
+
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255, blank=True, null=True)
     telephone = models.CharField(max_length=16, blank=True, null=True)
@@ -13,4 +17,3 @@ class Tenant(TenantMixin):
 
     def __str__(self):
         return self.schema_name
-

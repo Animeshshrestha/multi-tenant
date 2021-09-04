@@ -4,15 +4,15 @@ from rest_framework.authentication import BasicAuthentication
 
 User = get_user_model()
 
-class CustomAuthentication(BasicAuthentication):
 
+class CustomAuthentication(BasicAuthentication):
     def authenticate_header(self, request):
         return 403
 
 
 class AgencyAuthBackend(ModelBackend):
     """
-    Backend for authenticating users with email and agency.
+    Backend for authenticating users with email and password.
     """
 
     def authenticate(self, request, username=None, password=None, **kwargs):

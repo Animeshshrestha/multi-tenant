@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2u-sxt4ntxo-246(6+-0d6dtz(ax=fgelowf1g=ts%+h6h86gx'
+SECRET_KEY = "django-insecure-2u-sxt4ntxo-246(6+-0d6dtz(ax=fgelowf1g=ts%+h6h86gx"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,109 +34,105 @@ ALLOWED_HOSTS = []
 # Application definition
 
 SHARED_APPS = (
-    'tenant_schemas',  # mandatory, should always be before any django app
-    'app.tenants',
-    'app.api_key',
-    'app.users',
-
-    'django.contrib.contenttypes',
-
+    "tenant_schemas",  # mandatory, should always be before any django app
+    "app.tenants",
+    "app.api_key",
+    "app.users",
+    "django.contrib.contenttypes",
     # everything below here is optional
-    'django.contrib.auth',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.admin',
+    "django.contrib.auth",
+    "django.contrib.sessions",
+    "django.contrib.sites",
+    "django.contrib.messages",
+    "django.contrib.admin",
 )
 
 TENANT_APPS = (
-    'django.contrib.contenttypes',
-
+    "django.contrib.contenttypes",
     # your tenant-specific apps
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites'
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
 )
 
 INSTALLED_APPS = [
-    'tenant_schemas',
-    'app.tenants',
-    'app.api_key',
-    'app.users',
-    'drf_yasg',
-    'corsheaders',
-    'rest_framework',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites'
+    "tenant_schemas",
+    "app.tenants",
+    "app.api_key",
+    "app.users",
+    "drf_yasg",
+    "drf_spectacular",
+    "corsheaders",
+    "rest_framework",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
 ]
 
 # INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
-TENANT_MODEL = 'tenants.Tenant'
+TENANT_MODEL = "tenants.Tenant"
 
 MIDDLEWARE = [
-    'app.tenants.middleware.HTTPHeaderTenantMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'app.tenants.middleware.HTTPHeaderTenantMiddleware',
+    "app.tenants.middleware.HTTPHeaderTenantMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "app.tenants.middleware.HTTPHeaderTenantMiddleware",
 ]
 
-ROOT_URLCONF = 'assessment.urls'
+ROOT_URLCONF = "assessment.urls"
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = "users.User"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'assessment.wsgi.application'
+WSGI_APPLICATION = "assessment.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'tenant_schemas.postgresql_backend',
-        'USER': 'merosiksha',
-        'PASSWORD': 'merosiksha123',
-        'NAME': 'assessment',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "tenant_schemas.postgresql_backend",
+        "USER": "merosiksha",
+        "PASSWORD": "merosiksha123",
+        "NAME": "assessment",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
-DATABASE_ROUTERS = (
-    'tenant_schemas.routers.TenantSyncRouter',
-)
+DATABASE_ROUTERS = ("tenant_schemas.routers.TenantSyncRouter",)
 
 
 # Password validation
@@ -144,16 +140,16 @@ DATABASE_ROUTERS = (
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -161,9 +157,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -171,43 +167,47 @@ USE_L10N = True
 
 USE_TZ = True
 
-DEFAULT_FILE_STORAGE = 'tenant_schemas.storage.TenantFileSystemStorage'
+DEFAULT_FILE_STORAGE = "tenant_schemas.storage.TenantFileSystemStorage"
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATIC_ROOT = Path(BASE_DIR, "static")
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = Path(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
-    'api-key',
+    "api-key",
 ]
 
 TEMPLATE_LOADERS = (
-    'tenant_schemas.template_loaders.FilesystemLoader',
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader'
+    "tenant_schemas.template_loaders.FilesystemLoader",
+    "django.template.loaders.filesystem.Loader",
+    "django.template.loaders.app_directories.Loader",
 )
 
-API_KEY_SALT = 'hello-api-key-from-internet'
+API_KEY_SALT = "hello-api-key-from-internet"
 
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake',
-        'KEY_FUNCTION': 'tenant_schemas.cache.make_key'
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "unique-snowflake",
+        "KEY_FUNCTION": "tenant_schemas.cache.make_key",
     }
     # 'REVERSE_KEY_FUNCTION': 'tenant_schemas.cache.reverse_key',
 }
 
-TIME_ZONE = 'Asia/Kathmandu'
+TIME_ZONE = "Asia/Kathmandu"
 
 USE_I18N = True
 
@@ -219,43 +219,39 @@ SIMPLE_JWT = {
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'app.api_key.permissions.ApiKeyPermission',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "app.api_key.permissions.ApiKeyPermission",
         "rest_framework.permissions.IsAuthenticated"
         # 'rest_framework.permissions.IsAuthenticated',
     ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'app.core.auth_backends.CustomAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "app.core.auth_backends.CustomAuthentication",
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    'DEFAULT_PAGINATION_CLASS': 'app.core.pagination.DynamicPageSizePagination',
-    'PAGE_SIZE': 10,
+    "DEFAULT_PAGINATION_CLASS": "app.core.pagination.DynamicPageSizePagination",
+    "PAGE_SIZE": 10,
     "DATETIME_FORMAT": "%B %d, %Y",
 }
 
 
 SWAGGER_SETTINGS = {
-    'DEFAULT_MODEL_RENDERING': True,
-    'DEEP_LINKING': True,
-    'USE_SESSION_AUTH': False,
-    'DOC_EXPANSION': 'none',
-    'PERSIST_AUTH': True,
-    'SECURITY_DEFINITIONS': {
-        'Authorization': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header',
-            'format': 'JWT'
+    "DEFAULT_MODEL_RENDERING": True,
+    "DEEP_LINKING": True,
+    "USE_SESSION_AUTH": False,
+    "DOC_EXPANSION": "none",
+    "PERSIST_AUTH": True,
+    "SECURITY_DEFINITIONS": {
+        "Authorization": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "format": "JWT",
         },
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Api-Key',
-            'in': 'header'
-        }
-    }
+        "Bearer": {"type": "apiKey", "name": "Api-Key", "in": "header"},
+    },
 }
 
 
