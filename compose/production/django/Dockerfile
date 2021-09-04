@@ -3,7 +3,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN pip install --upgrade pip
 RUN apt update -y
-RUN apt install -y python-pip python-dev build-essential
+RUN apt install -y python3-pip python-dev build-essential
 
 
 WORKDIR /app
