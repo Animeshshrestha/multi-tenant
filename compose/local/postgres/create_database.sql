@@ -1,3 +1,3 @@
-CREATE USER merosiksha WITH PASSWORD 'merosiksha123';
+CREATE USER assessment WITH PASSWORD 'assessment123';
 CREATE DATABASE assessment;
-GRANT ALL PRIVILEGES ON DATABASE assessment TO merosiksha;
+GRANT ALL PRIVILEGES ON DATABASE assessment TO assessment;

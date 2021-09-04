@@ -25,7 +25,7 @@ services:
     image: postgres:13.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-      - ./compose/production/postgres/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
+      - ./compose/local/postgres/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
     env_file:
       - ./.envs/.local/.postgres.env
     ports:
