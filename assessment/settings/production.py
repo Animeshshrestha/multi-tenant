@@ -3,7 +3,7 @@ import environ
 from .base import *
 
 env = environ.Env()
-env.read_env(env.str("BASE_DIR", ".envs/.env"))
+env.read_env(env.str("BASE_DIR", ".envs/.production/.django.env"))
 
 SECRET_KEY = env("SECRET_KEY")
 

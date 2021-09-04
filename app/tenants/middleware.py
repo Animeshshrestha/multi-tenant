@@ -1,10 +1,9 @@
+from app.core.utils import get_tenant
 from django.conf import settings
 from django.db import connection
 from django.http import JsonResponse
 from tenant_schemas.middleware import DefaultTenantMiddleware
 from tenant_schemas.utils import get_public_schema_name
-
-from app.core.utils import get_tenant
 
 
 class HTTPHeaderTenantMiddleware(DefaultTenantMiddleware):
@@ -18,7 +17,7 @@ class HTTPHeaderTenantMiddleware(DefaultTenantMiddleware):
     def process_request(self, request):
         # since the swagger api does not require header api-key we are checking if the
         # request.path contains swagger url path or not
-        if "/swagger" or "/api/schema/" in request.path:
+        if request.path in ["/swagger/", "/api/schema/"]:
             return None
         # Connection needs first to be at the public schema, as this is where
         # the tenant metadata is stored.
