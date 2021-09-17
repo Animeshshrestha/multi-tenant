@@ -35,7 +35,7 @@ docker-compose -f local.yml up -d
 
 Visit <u> localhost:8000 or 0.0.0.0:8000 </u> if you are using docker-compose
 
-[Swagger API List Documentation](http://13.126.34.63:1337/swagger/)
+[Swagger API List Documentation](http://localhost:8000/swagger/)
 
 # Creating Tenant and generating api-key for the respective tenant
 
